@@ -1,0 +1,19 @@
+# render.yaml
+
+services:
+  - type: web
+    name: your-react-app
+    buildCommand: npm install && npm run build
+    publishConfig:
+      "build": "build"
+
+routes:
+  - src: /.*
+    dest: /index.html
+    methods: ["GET"]
+
+environments:
+  - name: production
+    buildCommand: npm install && npm run build
+    publishConfig:
+      "build": "build"
